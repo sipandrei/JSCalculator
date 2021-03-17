@@ -1,0 +1,44 @@
+body {
+  background-color: #af8561;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+main {
+  display: grid;
+  grid-template-areas:
+    "input input input"
+    "button1 button2 button3"
+    "button4 button5 button6"
+    "button7 button8 button9"
+    "buttoni button0 buttonC"
+    "buttond buttonm buttone"
+    "buttonp buttonp buttonp";
+  width: 50vw;
+}
+#textBox {
+  width: 5fr;
+  grid-area: input;
+  text-align: center;
+}
+.blackNgold {
+  color: #d3b69c;
+  background-color: #52494c;
+  border: 5px solid #b9a167;
+  box-shadow: 0 0 2px 1px #52494c;
+  border-radius: 9999px;
+  margin: 0.7vh 2vw;
+  padding: 2vh;
+  font-size: 20px;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
