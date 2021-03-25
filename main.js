@@ -35,10 +35,18 @@ butonC.addEventListener("click", () => {
   resetareClasa(butonD);
 });
 butonP.addEventListener("click", () => {
-  numarAux = numarMemorat;
-  numarAfisat = 0;
-  operatie = 1;
-  textBox.textContent = numarAfisat;
+  if (numarAux == 0) {
+    numarAux = numarMemorat;
+    numarAfisat = 0;
+    operatie = 1;
+    textBox.textContent = rezultat;
+  } else {
+    operatieNoua();
+    numarAux = numarMemorat;
+    numarAfisat = 0;
+    operatie = 1;
+    textBox.textContent = rezultat;
+  }
 
   schimbareClasa(butonP);
   resetareClasa(butonD);
@@ -46,10 +54,18 @@ butonP.addEventListener("click", () => {
   resetareClasa(butonI);
 });
 butonM.addEventListener("click", () => {
-  numarAux = numarMemorat;
-  numarAfisat = 0;
-  operatie = 2;
-  textBox.textContent = numarAfisat;
+  if (numarAux == 0) {
+    numarAux = numarMemorat;
+    numarAfisat = 0;
+    operatie = 2;
+    textBox.textContent = rezultat;
+  } else {
+    operatieNoua();
+    numarAux = numarMemorat;
+    numarAfisat = 0;
+    operatie = 2;
+    textBox.textContent = rezultat;
+  }
 
   schimbareClasa(butonM);
   resetareClasa(butonD);
@@ -57,10 +73,18 @@ butonM.addEventListener("click", () => {
   resetareClasa(butonI);
 });
 butonI.addEventListener("click", () => {
-  numarAux = numarMemorat;
-  numarAfisat = 0;
-  operatie = 3;
-  textBox.textContent = numarAfisat;
+  if (numarAux == 0) {
+    numarAux = numarMemorat;
+    numarAfisat = 0;
+    operatie = 3;
+    textBox.textContent = rezultat;
+  } else {
+    operatieNoua();
+    numarAux = numarMemorat;
+    numarAfisat = 0;
+    operatie = 3;
+    textBox.textContent = rezultat;
+  }
 
   schimbareClasa(butonI);
   resetareClasa(butonD);
@@ -68,10 +92,18 @@ butonI.addEventListener("click", () => {
   resetareClasa(butonM);
 });
 butonD.addEventListener("click", () => {
-  numarAux = numarMemorat;
-  numarAfisat = 0;
-  operatie = 4;
-  textBox.textContent = numarAfisat;
+  if (numarAux == 0) {
+    numarAux = numarMemorat;
+    numarAfisat = 0;
+    operatie = 4;
+    textBox.textContent = rezultat;
+  } else {
+    operatieNoua();
+    numarAux = numarMemorat;
+    numarAfisat = 0;
+    operatie = 4;
+    textBox.textContent = rezultat;
+  }
 
   schimbareClasa(butonD);
   resetareClasa(butonP);
@@ -80,12 +112,12 @@ butonD.addEventListener("click", () => {
 });
 butonE.addEventListener("click", () => {
   calcul(numarAux, numarMemorat);
-  numarMemorat = rezultat;
-  numarAux = 0;
+  numarMemorat = null;
+  numarAux = null;
   numarAfisat = rezultat;
   operatie = null;
   rezultat = 0;
-  textBox.textContent = numarAfisat;
+  textBox.textContent = "= " + numarAfisat;
   numarAfisat = 0;
 
   resetareClasa(butonP);
@@ -110,14 +142,22 @@ function calcul(a, b) {
       rezultat = a / b;
       break;
   }
-  console.log(rezultat, numarMemorat, numarAux);
 }
 
 function schimbareClasa(buton) {
-  buton.classList.toggle("butonActiv");
-  buton.classList.toggle("blackNgold");
+  buton.classList.add("butonActiv");
+  buton.classList.remove("blackNgold");
 }
 function resetareClasa(buton) {
   buton.classList.remove("butonActiv");
   buton.classList.add("blackNgold");
+}
+function operatieNoua() {
+  calcul(numarAux, numarMemorat);
+  numarMemorat = rezultat;
+  numarAux = 0;
+  numarAfisat = rezultat;
+  operatie = null;
+  textBox.textContent = numarAfisat;
+  numarAfisat = 0;
 }
