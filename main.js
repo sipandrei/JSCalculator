@@ -112,13 +112,14 @@ butonD.addEventListener("click", () => {
 });
 butonE.addEventListener("click", () => {
   calcul(numarAux, numarMemorat);
-  numarMemorat = null;
-  numarAux = null;
   numarAfisat = rezultat;
-  operatie = null;
-  rezultat = 0;
   textBox.textContent = "= " + numarAfisat;
+
+  rezultat = 0;
+  numarMemorat = 0;
   numarAfisat = 0;
+  numarAux = 0;
+  operatie = null;
 
   resetareClasa(butonP);
   resetareClasa(butonM);
